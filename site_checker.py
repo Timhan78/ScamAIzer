@@ -1,7 +1,9 @@
 import re
 import requests
 import whois  # Импортируем библиотеку WHOIS
-from config import API_KEY  # Импортируем ключ
+import os
+API_KEY = os.getenv("API_KEY")
+
 
 def is_valid_domain(domain):
     # Регулярное выражение для проверки доменных имен
