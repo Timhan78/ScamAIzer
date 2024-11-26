@@ -21,9 +21,18 @@ def check():
             result = f"'{domain}' is not a valid domain name. Please try again."
     except Exception as e:
         result = f"An error occurred: {str(e)}"
+    
+    # Add a button to return to the homepage
+    result += """
+    <br><br>
+    <form action="/" method="get">
+        <button type="submit">Check Another Website</button>
+    </form>
+    """
     return result
 
 if __name__ == "__main__":
-    # Указываем порт, предоставленный Render, или используем 5000 по умолчанию
+    # Use the port provided by Render or default to 5000
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
